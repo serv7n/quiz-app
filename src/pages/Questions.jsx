@@ -8,6 +8,8 @@ function Questions() {
         <section className="">
           <h2 className="text-white">Qual o maior orgam do ser humano</h2>
         </section>
+
+        
       </main>
     </>
   );

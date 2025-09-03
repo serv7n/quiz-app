@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Nav from "../components/Nav";
-import { LucidePlay } from "lucide-react";
-import { Navigate } from "react-router-dom";
+import { LucidePlay, User } from "lucide-react";
+import { Navigate,useNavigate } from "react-router-dom";
+
 function Home() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
@@ -9,37 +10,41 @@ function Home() {
     user: "leo",
     password: "1234"
   }
+  const navigate = useNavigate();
   // const navigate
   
 function onClickBtn(user, password) {
+    verificao(user,password)
      if (user.trim() !== "" && password.trim() !== "") {
       const dados = {
         user: user,
         password: password
       }
-      localStorage.setItem("user",JSON.stringify())
-     }
+      localStorage.setItem("user",JSON.stringify(dados))
+      navigate("/q");
 
+    }
 
+    
 
 }
 
 
-// verificao =  () =>{
-//     if (user.trim() !== "" && password.trim() !== "") {
+function  verificao  (user,password){
+    if (user.trim() !== "" && password.trim() !== "") {
     
-//     // Verifica se o usuário e senha correspondem
-//     if (user === usuario.user && password === usuario.password) {
-//      alert("Usuário encontrado. Login bem-sucedido.");
+    // Verifica se o usuário e senha correspondem
+    if (user === usuario.user && password === usuario.password) {
+     alert("Usuário encontrado. Login bem-sucedido.");
 
-//     } else {
-//      alert("Usuário não encontrado ou senha incorreta.");
-//     }
+    } else {
+     alert("Usuário não encontrado ou senha incorreta.");
+    }
 
-//   } else {
-//    alert("Preencha todos os campos.");
-//   }
-// }
+  } else {
+   alert("Preencha todos os campos.");
+  }
+}
   return (
     <>
       <main className="h-screen w-screen bg-blue-200 space-y-7">

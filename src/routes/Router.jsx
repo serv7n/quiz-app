@@ -1,12 +1,26 @@
-import Home from '../pages/Home'
-import Questions from '../pages/Questions'
-import NotFound from '../pages/NotFound'
-import { createBrowserRouter } from 'react-router-dom'
-
+import Home from "../pages/Home";
+import Questions from "../pages/Questions";
+import NotFound from "../pages/NotFound";
+import { createBrowserRouter } from "react-router-dom";
+import ProtectedRoute from "../middleware/ProtectedRoute";
 const Router = createBrowserRouter([
-  { path: "/", element: <Home /> },
-  { path: "/q", element: <Questions /> },
-  { path: "*", element: <NotFound /> }
-])
+  {
+    path: "/",
+    element: (
+     
+        <Home />
+     
+    ),
+  },
+  {
+    path: "/q",
+    element: (
+      <ProtectedRoute>
+        <Questions />
+       </ProtectedRoute>
+    ),
+  },
+  { path: "*", element: <NotFound /> },
+]);
 
-export default Router
+export default Router;
