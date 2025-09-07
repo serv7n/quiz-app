@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Nav from "../components/Nav";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function Questions() {
+  const navigate = useNavigate();
   const questoes = {
     1: {
       title: "Qual o maior órgão do ser humano",
@@ -104,48 +106,76 @@ function Questions() {
       correta: 3,
     },
   };
+
+  const totalQuestoes = Object.keys(questoes).length;
   const [progresso, setProgresso] = useState({
     step: 1,
     certas: 0,
+    total: totalQuestoes
   });
-  const questaoAtual = questoes[progresso.step]
-  // onClickButton(alternativa, question) =>{
-  //     if(alternativa == question.correta){
 
-  //     }
-  // }  
+  const proximaQuestao = progresso.step + 1;
+
+  function onClickButton(alternativa, question) {
+    // se não existir questão atual, redireciona
+
+    if (alternativa == question.correta) {
+      console.log("correct");
+      setProgresso((prev) => ({
+        step: prev.step + 1,
+        certas: prev.certas + 1,
+        total: prev.total
+      }));
+        console.log(progresso)
+    } else {
+      setProgresso((prev) => ({ step: prev.step + 1, certas: prev.certas, total: prev.total}));
+      console.log("erro");
+        console.log(progresso)
+    }
+  }
+  const questaoAtual = questoes[progresso.step];
+
+  useEffect(() => {
+
+    if (!questaoAtual) {
+      console.log(progresso)
+      localStorage.setItem("progresso",JSON.stringify(progresso))
+      navigate("/resultados");
+    }
+  }, [questaoAtual, navigate]);
+
+  if (!questaoAtual) {
+    return null;
+  }
+
   return (
     <>
       <main className="h-screen w-screen bg-blue-200 flex flex-col items-center">
         <Nav />
-      <section className="flex flex-col items-center bg-blue-950 w-full min-h-screen p-8">
-      <div className="mb-8">
-        <h2 className="text-white text-2xl font-bold text-center max-w-2xl bg-amber-300-">
-          {questaoAtual.title}
-        </h2>
-      </div>
-      
-      <div className="grid grid-cols-1 gap-4 w-full max-w-md">
-        {}
-       {/* <button  className="bg-white hover:bg-blue-100 text-blue-950 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
-          {questoes[progresso.step].alternativas[1]}
-        </button> */}
-        {/* <button  className="bg-white hover:bg-blue-100 text-blue-950 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
-          {questoes[progresso.step].alternativas[1]}
-        </button>
-        <button className="bg-white hover:bg-blue-100 text-blue-950 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
-          {questoes[progresso.step].alternativas[2]}
-        </button>
-        <button className="bg-white hover:bg-blue-100 text-blue-950 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
-          {questoes[progresso.step].alternativas[3]}
-        </button>
-        <button className="bg-white hover:bg-blue-100 text-blue-950 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
-          {questoes[progresso.step].alternativas[4]}
-        </button> */}
-      </div>
-    </section>
+        <section className="flex flex-col items-center bg-blue-950 w-full min-h-screen p-8">
+          <div className="mb-8">
+            <h2 className="text-white text-2xl font-bold text-center max-w-2xl bg-amber-300-">
+              {questaoAtual.title}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 w-full max-w-md">
+            {Object.entries(questaoAtual.alternativas).map(([key, value]) => (
+              <button
+                key={key}
+                onClick={() => {
+                  onClickButton(key, questaoAtual);
+                }}
+                className="bg-white hover:bg-blue-100 text-blue-950 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+              >
+                {value}
+              </button>
+            ))}
+          </div>
+        </section>
       </main>
     </>
   );
 }
+
 export default Questions;

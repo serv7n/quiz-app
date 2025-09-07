@@ -4,14 +4,14 @@ import NotFound from "../pages/NotFound";
 import { createBrowserRouter } from "react-router-dom";
 import ProtectedRoute from "../middleware/ProtectedRoute";
 import HomeRedirect from "../middleware/HomeRedirect";
+import Resultados from "../pages/Resultados";
 const Router = createBrowserRouter([
   {
     path: "/",
     element: (
+      <HomeRedirect>
         <Home />
-      // <HomeRedirect>
-      // </HomeRedirect>
-     
+      </HomeRedirect>
     ),
   },
   {
@@ -19,8 +19,18 @@ const Router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <Questions />
-       </ProtectedRoute>
+      </ProtectedRoute>
     ),
+    
+  },
+    {
+    path: "/resultados",
+    element: (
+      <ProtectedRoute>
+        <Resultados />
+      </ProtectedRoute>
+    ),
+    
   },
   { path: "*", element: <NotFound /> },
 ]);
