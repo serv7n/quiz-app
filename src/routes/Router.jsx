@@ -8,9 +8,9 @@ const Router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <HomeRedirect>
         <Home />
-      </HomeRedirect>
+      // <HomeRedirect>
+      // </HomeRedirect>
      
     ),
   },

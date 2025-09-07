@@ -108,6 +108,7 @@ function Questions() {
     step: 1,
     certas: 0,
   });
+  const questaoAtual = questoes[progresso.step]
   // onClickButton(alternativa, question) =>{
   //     if(alternativa == question.correta){
 
@@ -120,23 +121,27 @@ function Questions() {
       <section className="flex flex-col items-center bg-blue-950 w-full min-h-screen p-8">
       <div className="mb-8">
         <h2 className="text-white text-2xl font-bold text-center max-w-2xl bg-amber-300-">
-          {questoes[1].title}
+          {questaoAtual.title}
         </h2>
       </div>
       
       <div className="grid grid-cols-1 gap-4 w-full max-w-md">
-        <button  className="bg-white hover:bg-blue-100 text-blue-950 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
-          {questoes[1].alternativas[1]}
+        {}
+       {/* <button  className="bg-white hover:bg-blue-100 text-blue-950 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
+          {questoes[progresso.step].alternativas[1]}
+        </button> */}
+        {/* <button  className="bg-white hover:bg-blue-100 text-blue-950 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
+          {questoes[progresso.step].alternativas[1]}
         </button>
         <button className="bg-white hover:bg-blue-100 text-blue-950 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
-          {questoes[1].alternativas[2]}
+          {questoes[progresso.step].alternativas[2]}
         </button>
         <button className="bg-white hover:bg-blue-100 text-blue-950 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
-          {questoes[1].alternativas[3]}
+          {questoes[progresso.step].alternativas[3]}
         </button>
         <button className="bg-white hover:bg-blue-100 text-blue-950 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
-          {questoes[1].alternativas[4]}
-        </button>
+          {questoes[progresso.step].alternativas[4]}
+        </button> */}
       </div>
     </section>
       </main>
