@@ -5,6 +5,7 @@ import { createBrowserRouter } from "react-router-dom";
 import ProtectedRoute from "../middleware/ProtectedRoute";
 import HomeRedirect from "../middleware/HomeRedirect";
 import Resultados from "../pages/Resultados";
+import Tabela from "../pages/Tabela";
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +29,15 @@ const Router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <Resultados />
+      </ProtectedRoute>
+    ),
+    
+  },
+   {
+    path: "/tabela",
+    element: (
+      <ProtectedRoute>
+        <Tabela />
       </ProtectedRoute>
     ),
     

@@ -27,7 +27,7 @@ function Resultados() {
               </div>
             </div>
           </div>
-
+          
           <div className="grid grid-cols-1 gap-4 w-full max-w-md">
             <button className="bg-white hover:bg-blue-100 text-blue-950 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
               Fazer Novamente
@@ -35,6 +35,9 @@ function Resultados() {
             
             <button className="bg-white hover:bg-blue-100 text-blue-950 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
               Voltar ao Início
+            </button>
+            <button className="bg-white hover:bg-blue-100 text-blue-950 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
+              Tabela
             </button>
           </div>
         </section>

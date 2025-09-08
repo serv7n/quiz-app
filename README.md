@@ -1,12 +1,42 @@
-# React + Vite
+# 🎓 Projeto de Conclusão de Curso - Quiz de Educação Física
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um **sistema de Quiz interativo** desenvolvido em **React (frontend)** e **Laravel (backend)**, com o objetivo de apoiar o processo de ensino-aprendizagem em Educação Física.  
+Foi desenvolvido como **Trabalho de Conclusão de Curso (TCC)** no **Instituto Federal do Pará - Campus Itaituba**.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Autor
+- **Leandro de Sousa**  
+- Curso Técnico em Informática – IFPA Campus Itaituba  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Tecnologias Utilizadas
+### Frontend
+- [React](https://react.dev/) (Vite ou CRA)  
+- [TailwindCSS](https://tailwindcss.com/) para estilização  
+- [React Hooks](https://react.dev/reference/react) (`useState`, `useEffect`)  
+
+### Backend
+- [Laravel](https://laravel.com/)  
+- Banco de dados: MySQL  
+
+---
+
+## 📖 Funcionalidades
+- Exibição de **questões de múltipla escolha**.  
+- **Feedback instantâneo** para respostas certas e erradas.  
+- **Barra de progresso** mostrando o avanço no quiz.  
+- Cálculo de **taxa de acerto** em tempo real.  
+- **Tela final de resultados** com estatísticas do desempenho.  
+- Possibilidade futura de **armazenar resultados no backend** (Laravel).  
+
+---
+
+## 🖥️ Como Rodar o Projeto
+
+### 🔹 Backend (Laravel)
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/serv7n/laravel-quiz
+   cd /laravel-quiz
