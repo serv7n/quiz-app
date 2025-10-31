@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+
 import Nav from "../components/Nav";
 // Componente Nav simples
 

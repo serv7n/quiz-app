@@ -1,16 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 // Componente Nav simples
-function Nav() {
-  return (
-    <nav className="bg-blue-950 w-full p-4">
-      <h1 className="text-white text-lg font-bold text-center">Quiz App</h1>
-    </nav>
-  );
-}
+import Nav from '../components/Nav'
 
 function Tabela() {
-  const [vencedores, setVencedores] = useState([
+  const [vencedores] = useState([
     { id: 1, nome: "João Silva", pontuacao: "8/10", data: "08/09", tempo: "2:45" },
     { id: 2, nome: "Maria Santos", pontuacao: "7/10", data: "07/09", tempo: "3:12" },
     { id: 3, nome: "Pedro Costa", pontuacao: "9/10", data: "06/09", tempo: "2:31" },

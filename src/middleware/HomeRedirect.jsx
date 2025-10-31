@@ -6,7 +6,7 @@ export default function ProtectedRoute({ children }) {
 
   if (isLoggedIn) {
     console.log(isLoggedIn)
-    return <Navigate to="/q" replace />; // redireciona para a página de login
+    return <Navigate to="/turmas" replace />; 
   }
 
   return children;
