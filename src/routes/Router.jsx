@@ -1,68 +1,28 @@
-import Home from "../pages/Home";
-import QuestionsPage from "../pages/QuestionsPage";
+import AdminLogin from "../pages/AdminLogin";
+import Admin from "../pages/Admin";
+import TurmaDetalhes from "../pages/TurmaDetalhes";
 import NotFound from "../pages/NotFound";
 import { createBrowserRouter } from "react-router-dom";
-import ProtectedRoute from "../middleware/ProtectedRoute";
-import HomeRedirect from "../middleware/HomeRedirect";
-import Resultados from "../pages/Resultados";
-import Tabela from "../pages/Tabela";
-import Api from "../pages/ApiTest"
-import Turmas from '../pages/Turmas'
-import TurmasRedirect from '../middleware/TurmasRedirect';
+import Editar from "../pages/Editar";
+
 const Router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <HomeRedirect>
-        <Home />
-      </HomeRedirect>
-    ),
+    element: <AdminLogin />,
   },
   {
-    path: "/q",
-    element: (
-      // <TurmasRedirect>
-        <QuestionsPage />
-      // </TurmasRedirect>
-
-    ),
-    
+    path: "/admin",
+    element: <Admin />,
   },
-    {
-    path: "/resultados",
-    element: (
-    
-        <Resultados />
-    
-    ),
-    
+  {
+    path: "/turma/:id",
+    element: <TurmaDetalhes />,
   },
-   {
-    path: "/tabela",
-    element: (
-  
-        <Tabela />
-    
-    ),
-    
+  {
+    path: "/turma/:id/editar",
+    element: <Editar/>,
   },
   { path: "*", element: <NotFound /> },
-  {
-    path: "/api",
-    element: (
-        <Api />
-    ),
-    
-  }, {
-    path: "/turmas",
-    element: (
-      <ProtectedRoute>
-        <Turmas />
-      </ProtectedRoute>
-    ),
-
-  },
-
 ]);
 
 export default Router;
